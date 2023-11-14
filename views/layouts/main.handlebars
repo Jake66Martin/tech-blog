@@ -5,18 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <header>
     <nav class = "nav-bar">
-      <button>Home</button>
-      <button>Dashboard</button>
-      <button>Login</button>
+      <div class = "flex">
+      <a class = "anchor-text" href = "/">Home</a>
+      <a class = "anchor-text" href = "">Dashboard</a>
+      <a class = "anchor-text" href ="">Login</a>
+      </div>
+      <div class = "flex">
+        <h1 class = "title">Tech Blog</h1>
+      </div>
     </nav>
   </header>
-  <main class="container container-fluid mt-5">
+  <main>
     <!-- Render the contents of the sub layout here -->
     {{{ body }}}
   </main>

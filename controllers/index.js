@@ -1,6 +1,13 @@
-const router = require('express').Router();
-const homeroute = require('./homeroute');
+const express = require('express');
+// const router = require('express').Router();
+const home = require('./homeroute');
+const registration = require('./registration')
+const login = require('./login')
 
-router.use('/', homeroute);
+const app = express()
 
-module.exports = router;
+app.use('/', home);
+app.use('/registration', registration)
+app.use('/login', login)
+
+module.exports = app;
