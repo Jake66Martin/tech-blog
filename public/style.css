@@ -8,12 +8,21 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    height: 50%;
 }
 
 .anchor-text {
     color: white;
+    text-decoration: none;
+    
 }
 
 .title {
     color: white;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.border {
+    border: 5px solid white;
 }
