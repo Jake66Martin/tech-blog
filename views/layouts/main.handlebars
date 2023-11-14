@@ -14,7 +14,11 @@
       <div class = "flex">
       <a class = "anchor-text" href = "/">Home</a>
       <a class = "anchor-text" href = "/dashboard">Dashboard</a>
-      <a class = "anchor-text" href ="/login">Login</a>
+      {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
       </div>
       <div class = "flex">
         <h1 class = "title border">Tech Blog</h1>
@@ -22,7 +26,6 @@
     </nav>
   </header>
   <main>
-    <!-- Render the contents of the sub layout here -->
     {{{ body }}}
   </main>
   <footer>
