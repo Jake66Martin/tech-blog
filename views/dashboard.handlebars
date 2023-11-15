@@ -1,1 +1,10 @@
-<div><p>Say goodbye</p></div>
+
+{{#if loggedIn}}
+<form>
+    <label for = "comment">Comment:</label>
+    <input type = "text" id = "comment">
+    <button for = "id">create comment</button>
+</form>
+{{else}}
+<a href = "/login">Must sign in to view content</a>
+{{/if}}
