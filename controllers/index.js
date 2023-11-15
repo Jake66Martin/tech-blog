@@ -1,17 +1,16 @@
 const express = require('express');
 
-const home = require('./homeroute');
-const registration = require('./registration')
-const login = require('./login')
-const dash = require('./dashboard')
-const comment = require('./comment')
+const home = require('./homeroute.js');
+const login = require('./login.js')
+const dash = require('./dashboard.js')
+const api = require('./api')
+
 
 const app = express()
 
 app.use('/', home);
-app.use('/registration', registration)
 app.use('/login', login)
 app.use('/dashboard', dash)
-app.use('/comment', comment)
+app.use('/api', api)
 
 module.exports = app;
