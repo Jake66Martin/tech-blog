@@ -1,6 +1,6 @@
 const {Comments} = require('../models')
 
-const ogComment = [
+const ogComment = 
     {
         title: 'The original comment!',
         comment: `Hello! Welcome to my techblog site!
@@ -8,7 +8,7 @@ const ogComment = [
         many more users join so that we may all come together as
         one big tech family!`
     }
-]
+
 
 const comment = () => Comments.create(ogComment);
 
