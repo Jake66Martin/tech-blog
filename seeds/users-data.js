@@ -4,7 +4,7 @@ const firstUser =
     {
         username: 'jake66martin',
         email: 'jake66martin@hotmail.com',
-        password: '12345'
+        password: 'jacob'
     }
 
 
