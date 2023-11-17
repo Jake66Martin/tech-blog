@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, User } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
       const dbBlogData = await Blog.findAll({
         include: [
           {
-            model: ,
-            attributes: ['filename', 'description'],
+            model: User,
+            attributes: ['username']
           },
         ],
       });
   
-      const galleries = dbGalleryData.map((gallery) =>
-        gallery.get({ plain: true })
+      const blogs = dbBlogData.map((blogs) =>
+        blogs.get({ plain: true })
       );
       res.render('homepage', {
-        galleries,
+        blogs,
         loggedIn: req.session.loggedIn,
       });
     } catch (err) {
@@ -24,3 +24,5 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  module.exports = router;

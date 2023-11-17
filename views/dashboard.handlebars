@@ -1,10 +1,13 @@
 
 {{#if loggedIn}}
-<form>
-    <label for = "comment">Comment:</label>
-    <input type = "text" id = "comment">
-    <button for = "id">create comment</button>
+<form class = "sub-btn">
+    <label for = "title">Title:</label>
+    <input type = "text" id = "title">
+    <label for = "blog">Blog content:</label>
+    <input type = "text" id = "blog">
+    <button type = 'submit'>create blog</button>
 </form>
+<script src="../js/comment.js"></script>
 {{else}}
 <a href = "/login">Must sign in to view content</a>
 {{/if}}

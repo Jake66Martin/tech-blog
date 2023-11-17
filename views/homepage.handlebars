@@ -1,5 +1,16 @@
 {{#if loggedIn}}
-<div><p>Hello world</p></div>
+  <section>
+    {{#each blogs as |blog|}}
+      <div>
+        <div>
+          {{blog.title}}
+        </div>
+        <div>
+          <a href = ''>{{blog.content}}</a>
+        </div>
+      </div>
+    {{/each}}
+  </section>
 {{else}}
-<a href = "/login">Must sign in to view content</a>
+  <a href="/login">Must sign in to view content</a>
 {{/if}}

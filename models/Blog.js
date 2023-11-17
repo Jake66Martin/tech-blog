@@ -18,7 +18,14 @@ Blog.init(
     content: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id',
+    //   },
+    // }
  
   },
   {
@@ -28,6 +35,7 @@ Blog.init(
     underscored: true,
     modelName: "blog",
   }
+  
 );
 
 module.exports = Blog;

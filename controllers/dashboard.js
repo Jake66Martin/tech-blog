@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const {Blog} = require('../models')
 
 router.get('/', async (req, res) => {
 
@@ -6,6 +7,18 @@ router.get('/', async (req, res) => {
     loggedIn: req.session.loggedIn
   });
 
+});
+
+router.post('/newblog', async (req, res) => {
+  try {
+    const newBlog = await Blog.create({
+      title: req.body.title,
+      content: req.body.content
+    });
+    res.status(200).json(newBlog);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
