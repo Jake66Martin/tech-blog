@@ -1,0 +1,9 @@
+{{#if loggedIn}}
+  <section>
+    {{#each blog as |blog|}}
+      {{blog.title}}
+    {{/each}}
+  </section>
+{{else}}
+  <a href="/login">Must sign in to view content</a>
+{{/if}}
