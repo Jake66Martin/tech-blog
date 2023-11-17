@@ -2,22 +2,23 @@ const router = require('express').Router();
 const { Blog, User, Comments } = require('../models');
 
 
-// router.get('/', async (req, res) => {
-
-//   res.render('blog');
-  
-
-// });
 
 router.get('/:id', async (req, res) => {
   try {
-    const dbBlogData = await Blog.findByPk();
+    const dbBlogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model : User,
+          attribute: "username"
+        }
+  ]
+});
 
-    const blog = dbBlogData.get({ plain: true })
+    const blogs = dbBlogData.get({ plain: true })
       
     
     res.render('blog', {
-      blog,
+      blogs,
       loggedIn: req.session.loggedIn
     });
   } catch (err) {

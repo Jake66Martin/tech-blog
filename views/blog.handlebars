@@ -1,7 +1,8 @@
 {{#if loggedIn}}
   <section>
-    {{#each blog as |blog|}}
-      {{blog.title}}
+    {{#each blogs as |blog|}}
+      {{title}}
+      {{content}}
     {{/each}}
   </section>
 {{else}}
