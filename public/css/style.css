@@ -41,3 +41,21 @@
 #password {
     padding: 5px 20px;
 }
+
+.card {
+    width: 500px;
+    height: 150px;
+    border: solid 2px black;
+}
+
+.card-title {
+height: 25%;
+border: solid 2px black;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.card-content {
+
+}
