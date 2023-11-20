@@ -14,6 +14,7 @@ router.post('/newblog', async (req, res) => {
     const newBlog = await Blog.create({
       title: req.body.title,
       content: req.body.content
+     
     });
     res.status(200).json(newBlog);
   } catch (err) {
