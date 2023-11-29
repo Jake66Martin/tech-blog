@@ -1,8 +1,10 @@
 {{#if loggedIn}}
   <section>
-    {{#each blogs as |blog|}}
-      {{title}}
-      {{content}}
+    {{#each newData}}
+      <div>
+        <p>{{this.title}}</p>
+        <p>{{this.content}}</p>
+      </div>
     {{/each}}
   </section>
 {{else}}

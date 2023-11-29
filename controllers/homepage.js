@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
       
 
-      console.log(sessionData)
+      console.log(sessionData.user_id)
 
       res.render('homepage', {
         blogs,

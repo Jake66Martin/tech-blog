@@ -18,7 +18,8 @@ Comments.init(
     comment: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    
  
   },
   {

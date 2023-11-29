@@ -9,16 +9,18 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model : User,
-          attribute: "username"
+          attribute: ["username"]
         }
   ]
 });
 
-    const blogs = dbBlogData.get({ plain: true })
+    const newData = dbBlogData.get({ plain: true })
+
+    console.log(newData)
       
     
     res.render('blog', {
-      blogs,
+      newData,
       loggedIn: req.session.loggedIn
     });
   } catch (err) {
