@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
     const blogs = dbBlogData.map((blogs) => blogs.get({ plain: true }));
 
     
-    sessionData = req.session.createdAt    
 
 
     const day = new Date().getDate()
@@ -25,10 +24,10 @@ router.get("/", async (req, res) => {
     const currentDay = `${day}/${month}/${year}`
 
     
-
+     blogs.current = currentDay
    
   
-   
+  //  console.log(blogs)
     
 
     res.render("homepage", {
