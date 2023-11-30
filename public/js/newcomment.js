@@ -24,6 +24,15 @@ const submitComment = async (event) => {
 
 }
 
-document
-    .querySelector('.sub-btn')
-    .addEventListener('submit', submitComment);
+// document
+//     .querySelector('.sub-btn')
+//     .addEventListener('submit', submitComment);
+
+
+const form = document.querySelector('.sub-btn');
+
+form.addEventListener('submit', submitComment);
+
+document.querySelector('.sub-btn').addEventListener('submit', () => {
+    location.reload();
+  });
