@@ -1,4 +1,4 @@
-const submitComment = async (event) => {
+const submitBlog = async (event) => {
     
     event.preventDefault();
 
@@ -21,4 +21,4 @@ const submitComment = async (event) => {
 
 document
     .querySelector('.sub-btn')
-    .addEventListener('submit', submitComment);
+    .addEventListener('submit', submitBlog);
