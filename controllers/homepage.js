@@ -17,18 +17,18 @@ router.get('/', async (req, res) => {
         blogs.get({ plain: true })
       );
 
-      const sessionData = req.session
+      const sessionData = req.session.createdAt
+
+      console.log(sessionData)
 
       
-
-      console.log(sessionData.user_id)
 
       res.render('homepage', {
         blogs,
         loggedIn: req.session.loggedIn,
-        createdAt: req.session.createdAt
+        sessionData
       });
-
+      
       
     } catch (err) {
       console.log(err);

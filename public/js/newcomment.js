@@ -1,4 +1,4 @@
-const submitBlog = async (event) => {
+const submitComment = async (event) => {
     
     event.preventDefault();
 
@@ -13,6 +13,8 @@ const submitBlog = async (event) => {
             body: JSON.stringify({ comment }),
             headers: { 'Content-Type': 'application/json' },
           });
+
+          console.log(response)
     }
 
 
@@ -20,4 +22,4 @@ const submitBlog = async (event) => {
 
 document
     .querySelector('.sub-btn')
-    .addEventListener('submit', submitBlog);
+    .addEventListener('submit', submitComment);
