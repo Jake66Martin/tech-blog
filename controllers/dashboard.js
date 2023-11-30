@@ -3,8 +3,17 @@ const {Blog} = require('../models')
 
 router.get('/', async (req, res) => {
 
+  const myBlogs = await Blog.findAll()
+
+  const blogData = myBlogs.map(data => data.get({ plain : true }));
+
+
+  const filteredBlogs = blogData.filter(blog => blog.user_id === req.session.user_id);
+
+
   res.render('dashboard', {
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    filteredBlogs
   });
 
 });

@@ -17,12 +17,50 @@ router.get('/:id', async (req, res) => {
     const newData = dbBlogData.get({ plain: true })
 
     console.log(newData)
+
+    const dbCommentData = await Comments.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Blog,
+          attributes: ["id"]
+        }
+      ],
+    
+    });
+
+    const filteredComments = dbCommentData.filter(comment => comment.blog_id === newData.id);
+    const comments = filteredComments.map(data => data.get({ plain : true }));
+
+
       
     
     res.render('blog', {
       newData,
+      comments,
       loggedIn: req.session.loggedIn
     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const dbBlogData = await Comments.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    
+    });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

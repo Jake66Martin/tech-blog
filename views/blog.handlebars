@@ -1,5 +1,5 @@
   <section class = "section">
-    
+    {{log comments}}
       <div class = "card">
         <div class = "card-title">
           <h1>{{newData.title}}</h1><p>Created by {{newData.user.username}} on {{newData.current}}</p>
@@ -9,6 +9,18 @@
         </div>
       </div>
       <div>
+      <div>
+        {{#each comments}}
+      <div class="card">
+        <div class="card-title">
+          <p>Created by {{this.user.username}} on {{@root.sessionData}}</p>
+        </div>
+        <div class="card-content">
+          <p>{{this.comment}}</p>
+        </div>
+      </div>
+    {{/each}}
+      </div>
       <form class = 'sub-btn'>
         <div class = "comment-form">
           <div>

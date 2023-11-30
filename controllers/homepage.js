@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Blog, User } = require("../models");
 
+
 router.get("/", async (req, res) => {
   try {
     const dbBlogData = await Blog.findAll({
