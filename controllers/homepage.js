@@ -15,8 +15,7 @@ router.get("/", async (req, res) => {
     const blogs = dbBlogData.map((blogs) => blogs.get({ plain: true }));
 
     
-     sessionData = req.session.createdAt
-    
+    sessionData = req.session.createdAt    
 
 
     const day = new Date().getDate()
@@ -28,7 +27,7 @@ router.get("/", async (req, res) => {
     
 
    
-
+  
    
     
 

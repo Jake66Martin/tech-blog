@@ -1,10 +1,9 @@
 {{#if loggedIn}}
-{{log currentDay}}
   <section class = "section">
     {{#each blogs}}
       <div class = "card">
         <div class = "card-title">
-          <h1>{{this.title}}</h1><p>Created by {{this.user.username}} on {{currentDay}}</p>
+          <h1>{{this.title}}</h1><p>Created by {{this.user.username}} on {{> date currentDate}}</p>
         </div>
         <div class = "card-content">
           <a href = '/blog/{{id}}'>{{this.content}}</a>
