@@ -1,0 +1,11 @@
+{{#each blogs}}
+
+      <div class="card">
+        <div class="card-title">
+          <h1>{{this.title}}</h1><p>Created by {{this.user.username}} on {{@root.sessionData}}</p>
+        </div>
+        <div class="card-content">
+          <a href="/blog/{{id}}">{{this.content}}</a>
+        </div>
+      </div>
+    {{/each}}
