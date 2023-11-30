@@ -35,13 +35,16 @@ router.get('/:id', async (req, res) => {
     const filteredComments = dbCommentData.filter(comment => comment.blog_id === newData.id);
     const comments = filteredComments.map(data => data.get({ plain : true }));
 
+    sessionData = req.session.createdAt
+
 
       
     
     res.render('blog', {
       newData,
       comments,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      sessionData
     });
   } catch (err) {
     console.log(err);

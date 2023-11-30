@@ -1,19 +1,30 @@
 const router = require('express').Router();
 const {Blog} = require('../models')
+const {User} = require("../models")
 
 router.get('/', async (req, res) => {
 
-  const myBlogs = await Blog.findAll()
+  const myBlogs = await Blog.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
 
   const blogData = myBlogs.map(data => data.get({ plain : true }));
 
 
   const filteredBlogs = blogData.filter(blog => blog.user_id === req.session.user_id);
 
+  sessionData = req.session.createdAt
+
 
   res.render('dashboard', {
     loggedIn: req.session.loggedIn,
-    filteredBlogs
+    filteredBlogs,
+    sessionData
   });
 
 });
