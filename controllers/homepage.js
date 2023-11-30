@@ -1,39 +1,46 @@
-const router = require('express').Router();
-const { Blog , User } = require('../models');
+const router = require("express").Router();
+const { Blog, User } = require("../models");
 
-router.get('/', async (req, res) => {
-    try {
-      const dbBlogData = await Blog.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['username']
-          },
-        ],
-      });
+router.get("/", async (req, res) => {
+  try {
+    const dbBlogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
 
-  
-      const blogs = dbBlogData.map((blogs) =>
-        blogs.get({ plain: true })
-      );
+    const blogs = dbBlogData.map((blogs) => blogs.get({ plain: true }));
 
-      const sessionData = req.session.createdAt
+    
+     sessionData = req.session.createdAt
+    
 
-      console.log(sessionData)
 
-      
+    const day = new Date().getDate()
+    const month = new Date().getMonth() + 1;
+    const year = new Date().getFullYear()
 
-      res.render('homepage', {
-        blogs,
-        loggedIn: req.session.loggedIn,
-        sessionData
-      });
-      
-      
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
-  });
+    const currentDay = `${day}/${month}/${year}`
 
-  module.exports = router;
+    
+
+   
+
+   
+    
+
+    res.render("homepage", {
+      blogs,
+      loggedIn: req.session.loggedIn,
+      currentDay
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;

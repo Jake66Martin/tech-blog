@@ -1,12 +1,13 @@
 {{#if loggedIn}}
+{{log currentDay}}
   <section class = "section">
-    {{#each blogs as |blog|}}
+    {{#each blogs}}
       <div class = "card">
         <div class = "card-title">
-          <h1>{{blog.title}}</h1><p>Created by {{blog.user.username}} on {{sessionData}}</p>
+          <h1>{{this.title}}</h1><p>Created by {{this.user.username}} on {{sessionData}}</p>
         </div>
         <div class = "card-content">
-          <a href = '/blog/{{id}}'>{{blog.content}}</a>
+          <a href = '/blog/{{id}}'>{{this.content}}</a>
         </div>
       </div>
     {{/each}}
