@@ -5,18 +5,20 @@ const submitComment = async (event) => {
     console.log('click')
 
     const comment = document.querySelector('#comment').value.trim();
+    const newData = window.location.toString().split("/")
+    const blog_id = newData[4]
 
-    console.log(comment)
+    
 
     if (comment) {
 
         const response = await fetch('/blog/newcomment', {
             method: 'POST',
-            body: JSON.stringify({ comment }),
+            body: JSON.stringify({ comment, blog_id }),
             headers: { 'Content-Type': 'application/json' },
           });
 
-          console.log(response)
+          
     }
 
 

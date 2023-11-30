@@ -16,7 +16,8 @@ router.get("/", async (req, res) => {
 
     const sessionData = req.session.createdAt
    
-  
+   
+
     
 
     res.render("homepage", {

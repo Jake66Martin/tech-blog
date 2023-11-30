@@ -35,7 +35,10 @@ router.post('/newcomment', async (req, res) => {
     
       comment: req.body.comment, 
       user_id: req.session.user_id,
+      blog_id: req.body.blog_id
       
+      
+     
      
     });
     res.status(200).json(newComment);
