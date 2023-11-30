@@ -14,26 +14,15 @@ router.get("/", async (req, res) => {
 
     const blogs = dbBlogData.map((blogs) => blogs.get({ plain: true }));
 
-    
-
-
-    const day = new Date().getDate()
-    const month = new Date().getMonth() + 1;
-    const year = new Date().getFullYear()
-
-    const currentDay = `${day}/${month}/${year}`
-
-    
-     blogs.current = currentDay
+    const sessionData = req.session.createdAt
    
   
-  //  console.log(blogs)
     
 
     res.render("homepage", {
       blogs,
       loggedIn: req.session.loggedIn,
-      currentDay
+      sessionData
     });
   } catch (err) {
     console.log(err);

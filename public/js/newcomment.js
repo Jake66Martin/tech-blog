@@ -6,6 +6,8 @@ const submitComment = async (event) => {
 
     const comment = document.querySelector('#comment').value.trim();
 
+    console.log(comment)
+
     if (comment) {
 
         const response = await fetch('/blog/newcomment', {
