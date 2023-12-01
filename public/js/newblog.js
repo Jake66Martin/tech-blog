@@ -19,9 +19,7 @@ const submitBlog = async (event) => {
 
 }
 
-// document
-//     .querySelector('.sub-btn')
-//     .addEventListener('submit', submitBlog);
+
     
 const form = document.querySelector('.sub-btn');
 
