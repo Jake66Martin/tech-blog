@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
 });
 
 
-router.delete("/", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const dbBlogData = await Blog.destroy({
      where: {
@@ -39,6 +39,8 @@ router.delete("/", async (req, res) => {
      }
     
     });
+
+    res.status(200).json({message: 'successfully deleted'})
 
   } catch (err) {
     console.log(err);
