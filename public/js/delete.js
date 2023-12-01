@@ -21,6 +21,3 @@ const form = document.querySelector('.delete')
 
 form.addEventListener('click', deleteBlog);
 
-// document.querySelector('.delete').addEventListener('click', () => {
-//     location.reload();
-//   });
