@@ -1,7 +1,7 @@
   <section class = "section">
       <div class = "card">
-        <div class = "card-title">
-          <h1>{{newData.title}}</h1><p>Created by {{newData.user.username}} on {{sessionData}}</p>
+        <div class = "card-title background">
+          <h1 class = 'color'>{{newData.title}}</h1><p class = 'color'>Created by {{newData.user.username}} on {{sessionData}}</p>
         </div>
         <div class = "card-content">
           <p>{{newData.content}}</p>
@@ -11,8 +11,8 @@
       <div>
         {{#each comments}}
       <div class="card">
-        <div class="card-title">
-          <p>Created by {{this.user.username}} on {{@root.sessionData}}</p>
+        <div class="card-title background">
+          <p class = 'color'>Created by {{this.user.username}} on {{@root.sessionData}}</p>
         </div>
         <div class="card-content">
           <p>{{this.comment}}</p>
@@ -24,7 +24,7 @@
         <div class = "comment-form">
           <div>
         <textarea class = "text" id = "comment" rows="7" cols="65">
-          Leave a comment here
+          
         </textarea>
         </div>
         <div>

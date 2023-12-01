@@ -5,10 +5,13 @@
     <label for = "title">Title:</label>
     <input type = "text" id = "title">
     <label for = "blog">Blog content:</label>
-    <input type = "text" id = "blog">
+    <textarea class = "text" id = "blog" rows="7" cols="65">
+    </textarea>
     <button type = 'submit'>create blog</button>
 </form>
 <script src="../js/newblog.js"></script>
 {{else}}
-<a href = "/login">Must sign in to view content</a>
+<div class = "notlogin">
+<a href = "/login"><p class = 'big'>Must sign in to view content</p></a>
+</div>
 {{/if}}
