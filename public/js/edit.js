@@ -1,6 +1,8 @@
-const deleteBlog = async (event) => {
+const updateBlog = async (event) => {
  
     event.preventDefault()
+
+    console.log(event)
     
         const newData = window.location.toString().split("/")
         const blog_id = newData[4]
@@ -8,7 +10,9 @@ const deleteBlog = async (event) => {
     
     
         const response = await fetch(`/edit/${blog_id}`, {
-            method: 'DELETE',
+            method: 'PUT',
+            body: JSON.stringify({ title, content }),
+            headers: { 'Content-Type': 'application/json' },
           });
     
           console.log(response)
@@ -17,7 +21,7 @@ const deleteBlog = async (event) => {
     
     }
     
-    const form = document.querySelector('.delete')
+    const form = document.querySelector('.sub-btn')
     
-    form.addEventListener('click', deleteBlog);
+    form.addEventListener('submit', updateBlog);
     
