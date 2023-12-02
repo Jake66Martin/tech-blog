@@ -7,7 +7,7 @@ event.preventDefault()
     console.log(blog_id)
 
 
-    const response = await fetch(`/edit/${blog_id}`, {
+    const response = await fetch(`/api/edit/${blog_id}`, {
         method: 'DELETE',
       });
 
