@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {Blog} = require('../models')
 const {User} = require("../models")
+const format = require('../utils/timestamp')
 
 router.get('/', async (req, res) => {
 
@@ -18,13 +19,16 @@ router.get('/', async (req, res) => {
 
   const filteredBlogs = blogData.filter(blog => blog.user_id === req.session.user_id);
 
-  sessionData = req.session.createdAt
+
+  const sessionData = req.session.createdAt
+
+const date = format(sessionData)
 
 
   res.render('dashboard', {
     loggedIn: req.session.loggedIn,
     filteredBlogs,
-    sessionData
+    date
   });
 
 });

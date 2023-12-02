@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blog, User, Comments } = require('../models');
+const format = require('../utils/timestamp')
 
 
 
@@ -16,7 +17,6 @@ router.get('/:id', async (req, res) => {
 
     const newData = dbBlogData.get({ plain: true })
 
-    console.log(newData)
 
     const dbCommentData = await Comments.findAll({
       include: [
@@ -35,7 +35,10 @@ router.get('/:id', async (req, res) => {
     const filteredComments = dbCommentData.filter(comment => comment.blog_id === newData.id);
     const comments = filteredComments.map(data => data.get({ plain : true }));
 
-    sessionData = req.session.createdAt
+
+    const sessionData = req.session.createdAt
+
+    const date = format(sessionData)
 
 
       
@@ -44,7 +47,7 @@ router.get('/:id', async (req, res) => {
       newData,
       comments,
       loggedIn: req.session.loggedIn,
-      sessionData
+      date
     });
   } catch (err) {
     console.log(err);

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const {Blog} = require('../models')
 const {User} = require('../models')
+const format = require('../utils/timestamp')
 
 router.get("/:id", async (req, res) => {
   try {
@@ -17,12 +18,14 @@ router.get("/:id", async (req, res) => {
 
     console.log(newData);
 
-    sessionData = req.session.createdAt;
+    const sessionData = req.session.createdAt
+
+    const date = format(sessionData)
 
     res.render("edit", {
       newData,
       loggedIn: req.session.loggedIn,
-      sessionData,
+      date
     });
   } catch (err) {
     console.log(err);
