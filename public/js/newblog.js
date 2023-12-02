@@ -9,7 +9,7 @@ const submitBlog = async (event) => {
 
     if (title && content) {
 
-        const response = await fetch('/dashboard/newblog', {
+        const response = await fetch('/api/dashboard/newblog', {
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' },

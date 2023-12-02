@@ -12,7 +12,7 @@ const submitComment = async (event) => {
 
     if (comment) {
 
-        const response = await fetch('/blog/newcomment', {
+        const response = await fetch('/api/blog/newcomment', {
             method: 'POST',
             body: JSON.stringify({ comment, blog_id }),
             headers: { 'Content-Type': 'application/json' },

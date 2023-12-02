@@ -12,7 +12,7 @@ const updateBlog = async (event) => {
         const content = document.querySelector('#blog').value.trim();
     
     if (title && content) {
-        const response = await fetch(`/edit/${blog_id}`, {
+        const response = await fetch(`/api/edit/${blog_id}`, {
             method: 'PUT',
             body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' },

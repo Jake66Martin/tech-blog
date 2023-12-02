@@ -1,37 +1,8 @@
 const router = require("express").Router();
-const {Blog} = require('../models')
-const {User} = require('../models')
-const format = require('../utils/timestamp')
+const {Blog} = require('../../models')
+const {User} = require('../../models')
 
-router.get("/:id", async (req, res) => {
-  try {
-    const dbBlogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attribute: ["username"],
-        },
-      ],
-    });
 
-    const newData = dbBlogData.get({ plain: true });
-
-    console.log(newData);
-
-    const sessionData = req.session.createdAt
-
-    const date = format(sessionData)
-
-    res.render("edit", {
-      newData,
-      loggedIn: req.session.loggedIn,
-      date
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 
 router.delete("/:id", async (req, res) => {
